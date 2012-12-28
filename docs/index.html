@@ -56,6 +56,7 @@
     <p>Requires
     <ul>
         <li><a href="http://jquery.com" target="_blank">jquery</a>
+    <li><a href="http://jqueryui.com" target="_blank">jquery-ui</a>
     </ul>
 
     <p>Tested with jquery >= 1.8.2 and >= jquery-ui 1.8.23 (recommended
@@ -142,6 +143,9 @@
 <h3>HTML (head section)</h3>
 
 <div class="level3">
+
+    <p>The <code>link</code> tag to juery-ui theme css must have an ID (e.g. "ui-theme")</p>
+
     <pre class="brush: xml">
 
     &lt;link id="ui-theme" rel="stylesheet" href="/path/to/jquery-ui.css">
@@ -156,6 +160,9 @@
 <h3>JS code</h3>
 
 <div class="level3">
+
+    <p>The <code>id</code> attribute of the <code>link</code> tag to jquery-ui theme css must be passed as parameter <code>stylesheet_link_id</code>:</p>
+
     <pre class="brush: js">
     $("#element_id").jui_theme_switch({
 
