@@ -1,5 +1,5 @@
 /**
- * @fileOverview jui_theme_switch
+ * @fileOverview jui_theme_switch: jquery plugin to switch juery-ui themes
  *               <p>License MIT
  *               <br />Copyright 2012 Christos Pontikis <a href="http://pontikis.net">http://pontikis.net</a>
  *               <br />Project page <a href="https://github.com/pontikis/jui_theme_switch">https://github.com/pontikis/jui_theme_switch</a>
