@@ -1,4 +1,4 @@
 jui_theme_switch
 ================
 
-jquery ui themes switcher
+Displays a list with jquery ui css and applies selected

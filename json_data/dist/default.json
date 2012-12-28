@@ -1,0 +1,14 @@
+[
+    {
+        "theme_url": "some/url",
+        "theme_name": "theme name",
+        "group": "group name",
+        "visible": "yes"
+    },
+    {
+        "theme_url": "some/url",
+        "theme_name": "theme name",
+        "group": "group name",
+        "visible": "yes"
+    }
+]

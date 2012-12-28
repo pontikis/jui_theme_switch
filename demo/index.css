@@ -1,0 +1,26 @@
+strong {
+    font-weight: bold;
+}
+
+.wrap {
+    padding: 5px;
+}
+
+.spacer {
+    margin: 20px 0;
+}
+
+/* demo_1 ------------------------------------------------------------------- */
+.container1 {
+    padding: 5px;
+}
+
+
+/* demo widgets ------------------------------------------------------------- */
+.ui-datepicker{
+    font-size: 12px;
+}
+
+.ui-autocomplete{
+    font-size: 12px;
+}
