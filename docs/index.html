@@ -40,7 +40,7 @@
 <h1>jui_theme_switch documentation (v1.00)</h1>
 
 <div class="level1">
-    <p>jui_theme_switch is ...
+    <p>jui_theme_switch is a jquery plugin, displays a list with jquery-ui css and applies selected theme.
 
     <p>Compatible with modern web browsers. Tested with: Google Chrome, Mozilla
         Firefox, Microsoft Internet Explorer, (default) Android browser.
@@ -98,8 +98,41 @@
 
 <div class="level2">
     <ul>
-        <li>Displays a list with jquery ui css and applies selected
+        <li>Displays a list with jquery-ui css and applies selected theme.
     </ul>
+</div>
+
+<!-- Copyright notice ------------------------------------------------------ -->
+<h2>Copyright notice</h2>
+
+<div class="level2">
+
+    Themes used
+
+    <ul>
+        <li>Official</li>
+        <ul>
+            <li>jquery-ui themes <a href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a></li>
+        </ul>
+
+        <li>3rd-party</li>
+        <ul>
+            <li>Absolution <a href="http://www.michaelvanderheeren.be/archives/382">http://www.michaelvanderheeren.be/archives/382</a> (no CDN available)</li>
+            <li>Aristo <a href="https://github.com/taitems/Aristo-jQuery-UI-Theme">https://github.com/taitems/Aristo-jQuery-UI-Theme</a></li>
+            <li>jquery-ui-bootstrap <a href="http://addyosmani.github.com/jquery-ui-bootstrap/">http://addyosmani.github.com/jquery-ui-bootstrap/</a></li>
+            <li>Selene <a href="https://github.com/gravityonmars/Selene">https://github.com/gravityonmars/Selene</a></li>
+            <li>Delta <a href="https://github.com/kiandra/Delta-jQuery-UI-Theme">https://github.com/kiandra/Delta-jQuery-UI-Theme</a></li>
+        </ul>
+
+        <li>Wijmo</li>
+        <ul>
+            <li>wijmo.com <a href="http://wijmo.com/theming/">http://wijmo.com/theming/</a></li>
+        </ul>
+    </ul>
+
+
+    <p>Most themes can be used for free. But read carefully license for each theme, before you use it (see json_data/dist/default.json "author" and "license" properties for each theme).
+    </p>
 </div>
 
 
@@ -110,14 +143,11 @@
 
 <div class="level3">
     <pre class="brush: xml">
-    &lt;!--  if custom classes used -->
-    &lt;link rel="stylesheet" href="/path/to/custom.css">
+
+    &lt;link id="ui-theme" rel="stylesheet" href="/path/to/jquery-ui.css">
 
     &lt;script type="text/javascript" src="/path/to/jquery.js" type="text/javascript">&lt;/script>
     &lt;script type="text/javascript" src="/path/to/jquery-ui.js" type="text/javascript">&lt;/script>
-
-    &lt;!--  if touch event support for touch devices is needed (see folder /lib) -->
-    &lt;script src="/path/to/jquery.ui.touch-punch.min.js" type="text/javascript">&lt;/script>
 
     &lt;script type="text/javascript" src="/path/to/jquery.jui_theme_switch.min.js" type="text/javascript">&lt;/script>
     </pre>
@@ -129,6 +159,12 @@
     <pre class="brush: js">
     $("#element_id").jui_theme_switch({
 
+        stylesheet_link_id: "ui-theme",  // REQUIRED
+        datasource_url: '../json_data/dist/default.json',  // REQUIRED
+
+        containerClass: "container1", // Optional
+        labelClass: "list1_label",  // Optional
+        listClass: "list1"  // Optional
     });
     </pre>
 
@@ -140,17 +176,22 @@
     <pre class="brush: js">
     [
         {
-            "theme_url": "some/url",
-            "theme_name": "theme name",
-            "group": "group name",
-            "visible": "yes"
+            "theme_name": "base",
+            "theme_url": "http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css",
+            "group": "Official",
+            "active": "yes",
+            "author": "jQuery Project",
+            "license": "http://jquery.org/license"
         },
         {
-            "theme_url": "some/url",
-            "theme_name": "theme name",
-            "group": "group name",
-            "visible": "yes"
-        }
+            "theme_name": "black-tie",
+            "theme_url": "http://code.jquery.com/ui/1.9.2/themes/black-tie/jquery-ui.css",
+            "group": "Official",
+            "active": "yes",
+            "author": "jQuery Project",
+            "license": "http://jquery.org/license"
+        },
+        ...
     ]
     </pre>
 </div>
@@ -163,6 +204,22 @@
     <pre class="brush: js">
     $("#element_id").jui_theme_switch({
 
+        stylesheet_link_id: "the id of the link tag",  // REQUIRED
+        datasource_url: 'json data url',  // REQUIRED
+
+        containerClass: "container1", // Optional
+        labelClass: "list1_label",  // Optional
+        listClass: "list1"  // Optional
+
+        // DEFAULTS
+        switcher_label: "Select theme",
+        default_theme: "ui-lightness",
+        list_size: "1",
+        use_groups: "yes",
+        show_all: "no", // default is show items having "active": "yes"
+
+        switcher_label_id_prefix: "lbl_",
+        switcher_id_prefix: "switcher_"
     });
     </pre>
 
@@ -171,9 +228,9 @@
 <!-- Methods --------------------------------------------------------------- -->
 <h2>Methods list</h2>
 
-<div class="level3" style="margin-top: 50px;">
+<!--<div class="level3" style="margin-top: 50px;">
     <span style="background-color: #d9dbdc; padding: 5px; font-size: 140%;">COMMON</span>
-</div>
+</div>-->
 
 <h3>getDefaults</h3>
 
@@ -236,9 +293,9 @@
     </pre>
 </div>
 
-<div class="level3" style="margin-top: 50px;">
+<!--<div class="level3" style="margin-top: 50px;">
     <span style="background-color: #d9dbdc; padding: 5px; font-size: 140%;">SPECIFIC</span>
-</div>
+</div>-->
 
 <!-- Events ---------------------------------------------------------------- -->
 <!--<h2>Events</h2>
@@ -256,8 +313,6 @@
     </pre>
 
 </div>-->
-
-
 
 <!-- Screenshots ----------------------------------------------------------- -->
 <!--<h2>Screenshots</h2>-->

@@ -61,14 +61,65 @@
                 }
                 elem.data(pluginName, settings);
 
-                var container_id = elem.attr("id");
+                var container_id = elem.attr("id"),
+                    themes_len, i, html = '',
+                    switcher_id = create_id(settings.switcher_id_prefix, container_id),
+                    switcher_label_id = create_id(settings.switcher_label_id_prefix, container_id),
+                    elem_switcher, elem_switcher_label,
+                    elem_link = $("#" + settings.stylesheet_link_id),
+                    selected = '', current_group, themes_group = '';
 
-                // simple validation
-                //validate_input(container_id);
+                $.ajax({
+                    url: settings.datasource_url,
+                    dataType: 'json',
+                    success: function(data) {
 
-                // bind events
-                //elem.unbind("onCustomEvent1").bind("onCustomEvent1", settings.onCustomEvent1);
+                        themes_len = data.length;
 
+                        html += '<label id="' + switcher_label_id + '" for="' + switcher_id + '">' + settings.switcher_label + '</label>';
+                        html += '<select id="' + switcher_id + '" size="' + settings.list_size + '">';
+                        for(i = 0; i < themes_len; i++) {
+
+                            if(current_group = data[i]["active"] == "yes" || settings.show_all == "yes") {
+
+                                if(settings.use_groups == "yes") {
+                                    current_group = data[i]["group"];
+                                    if(current_group !== themes_group) {
+                                        html += '<optgroup label="' + current_group + '">';
+                                        themes_group = current_group;
+                                    }
+                                }
+
+                                selected = (settings.default_theme == data[i]["theme_name"] ? ' selected="selected"' : '');
+                                html += '<option value="' + data[i]["theme_url"] + '"' + selected + '>';
+                                html += data[i]["theme_name"];
+                                html += '</option>';
+
+                                if(settings.use_groups = "yes") {
+                                    if(i < themes_len - 1 && data[parseInt(i) + 1]["group"] !== themes_group) {
+                                        html += '</optgroup>';
+                                    }
+                                }
+                            }
+                        }
+                        html += '</select>';
+
+                        elem.html(html);
+
+                        elem_switcher_label = $("#" + switcher_label_id);
+                        elem_switcher = $("#" + switcher_id);
+
+                        elem_switcher_label.removeClass().addClass(settings.labelClass);
+                        elem_switcher.removeClass().addClass(settings.listClass);
+                        elem.removeClass().addClass(settings.containerClass);
+
+                        // change theme
+                        elem.off('change', elem_switcher).on('change', elem_switcher, function() {
+                            elem_link.attr("href", elem_switcher.val());
+                        });
+
+                    }
+                });
 
             });
 
@@ -81,9 +132,14 @@
          */
         getDefaults: function() {
             return {
-                link_id: "ui_theme",
-                datasource_url: "json_data/dist/default.json",
-                list_label: "Select theme"
+                switcher_label: "Select theme",
+                default_theme: "ui-lightness",
+                list_size: "1",
+                use_groups: "yes",
+                show_all: "no", // default is show items having "active": "yes"
+
+                switcher_label_id_prefix: "lbl_",
+                switcher_id_prefix: "switcher_"
             };
         },
 
@@ -155,12 +211,14 @@
      */
 
     /**
-     * Validate input values
-     * @param container_id
+     * Create element id
+     * @param prefix
+     * @param plugin_container_id
+     * @return {*}
      */
-/*    var validate_input = function(container_id) {
-        // your code here (OPTIONAL)
-    };*/
+    var create_id = function(prefix, plugin_container_id) {
+        return prefix + plugin_container_id;
+    };
 
     /**
      * jui_theme_switch - short description.
