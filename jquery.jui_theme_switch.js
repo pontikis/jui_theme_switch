@@ -5,7 +5,7 @@
  *               <br />Project page <a href="https://github.com/pontikis/jui_theme_switch">https://github.com/pontikis/jui_theme_switch</a>
  * @version 1.00
  * @author Christos Pontikis http://pontikis.net
- * @requires jquery
+ * @requires jquery, jquery-ui
  */
 
 /**
