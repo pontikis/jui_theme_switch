@@ -1,0 +1,36 @@
+{
+    "name": "jui_theme_switch",
+    "version": "1.0.0",
+    "title": "jui_theme_switch",
+    "author": {
+        "name": "Christos Pontikis",
+        "url": "http://pontikis.net"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.github.com/pontikis/jui_theme_switch/master/MIT_LICENSE"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.6",
+        "jquery-ui": ">=1.8"
+    },
+    "description": "jquery plugin to switch juery-ui themes",
+    "homepage": "https://github.com/pontikis/jui_theme_switch",
+    "docs": "http://pontikis.net/jui_theme_switch/docs",
+    "demo": "http://pontikis.net/jui_theme_switch/demo",
+    "download": "https://github.com/pontikis/jui_theme_switch/zipball/v1.0.0",
+    "keywords": [
+        "jquery-ui",
+        "themes",
+        "themes-roller"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pontikis/jui_theme_switch"
+    },
+    "bugs": {
+        "url": "https://github.com/pontikis/jui_theme_switch/issues"
+    }
+}
