@@ -43,9 +43,9 @@
     <p>jui_theme_switch is a jquery plugin, displays a list with jquery-ui css and applies selected theme.
 
     <p>Compatible with modern web browsers. Tested with: Google Chrome, Mozilla
-        Firefox, Microsoft Internet Explorer, (default) Android browser.
+        Firefox, Microsoft Internet Explorer >= 8, (default) Android browser.
 
-    <p>Project page: <a href="https://github.com/pontikis/jui_theme_switch">https://github.com/jui_theme_switch</a>
+    <p>Project page: <a href="https://github.com/pontikis/jui_theme_switch">https://github.com/pontikis/jui_theme_switch</a>
 
     <p>Copyright &copy; Christos Pontikis <a href="http://pontikis.net"
                                              target="_blank">http://pontikis.net</a>
@@ -59,10 +59,9 @@
     <li><a href="http://jqueryui.com" target="_blank">jquery-ui</a>
     </ul>
 
-    <p>Tested with jquery >= 1.8.2 and >= jquery-ui 1.8.23 (recommended
-        jquery-ui >= 1.9)
+    <p>Tested with jquery >= 1.8.2 and >= jquery-ui 1.8.23
 
-    <p>UPCOMING Release 1.00 (?? Dec 2012) Download <a
+    <p>Release 1.00 (29 Dec 2012) Download <a
             href="https://github.com/pontikis/jui_theme_switch/zipball/v1.0.0">here</a>
 
     <p>CHANGELOG <a
@@ -132,7 +131,7 @@
     </ul>
 
 
-    <p>Most themes can be used for free. But read carefully license for each theme, before you use it (see json_data/dist/default.json "author" and "license" properties for each theme).
+    <p>Most themes can be used for free. But read carefully license for each theme, before you use it (see above links or json_data/dist/demo-all.json "author" and "license" properties for each theme).
     </p>
 </div>
 
@@ -166,6 +165,7 @@
     $("#element_id").jui_theme_switch({
         stylesheet_link_id: "ui-theme",  // REQUIRED
         datasource_url: '../json_data/dist/default.json',  // REQUIRED
+        project_url: "/path/to", // url relative to web server document root (required only for locally hosted themes)
     });
     </pre>
 
@@ -175,25 +175,27 @@
 
 <div class="level3">
 
-    ATTENTION: "theme_name" must be unique.
+    <strong>ATTENTION</strong>: "theme_name" must be unique.
 
     <pre class="brush: js">
     [
         {
-            "theme_name": "base",
-            "theme_url": "http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css",
+            "theme_name": "ui-lightness",
+            "theme_url": "http://code.jquery.com/ui/1.9.2/themes/ui-lightness/jquery-ui.css",
             "group": "Official",
             "active": "yes",
             "author": "jQuery Project",
             "license": "http://jquery.org/license"
         },
         {
-            "theme_name": "black-tie",
-            "theme_url": "http://code.jquery.com/ui/1.9.2/themes/black-tie/jquery-ui.css",
-            "group": "Official",
+            "theme_name": "Absolution",
+            "hosted_locally": "yes",
+            "theme_url": "/lib/jquery-ui-1.9.2.custom/css/3rd-party/Absolution/absolution.css",
+            "group": "3rd-party",
             "active": "yes",
-            "author": "jQuery Project",
-            "license": "http://jquery.org/license"
+            "author": "http://www.michaelvanderheeren.be/archives/382",
+            "license": "https://github.com/michaelvanderheeren/Absolution/blob/master/README.md",
+            "notes": "You are free to redistribute or change the theme. You can change the theme, but you should keep the references to contributors!"
         },
         ...
     ]
@@ -218,14 +220,21 @@
         use_groups: "yes",
         show_all: "no", // default is show items having "active": "yes"
 
-        project_url: "", // url relative to web server document root (available only for locally hosted themes)
+        project_url: "", // url relative to web server document root (required only for locally hosted themes)
 
         containerClass: "switcher_container",
         labelClass: "switcher_label",
         listClass: "switcher_list",
 
         switcher_label_id_prefix: "lbl_",
-        switcher_id_prefix: "switcher_"
+        switcher_id_prefix: "switcher_",
+
+        onChangeTheme: function() {
+
+        },
+        onDisplay: function() {
+
+        }
     });
     </pre>
 
@@ -303,22 +312,49 @@
     <span style="background-color: #d9dbdc; padding: 5px; font-size: 140%;">SPECIFIC</span>
 </div>
 
-<!-- Events ---------------------------------------------------------------- -->
-<!--<h2>Events</h2>
 
-<h3>onSomething</h3>
+<h3>getTheme</h3>
+
+<div class="level3">
+
+    <p>Returns the selected theme as JSON object</p>
+
+    <pre class="brush: js">
+    $("#element_id").jui_theme_switch('getTheme');
+    </pre>
+</div>
+
+<!-- Events ---------------------------------------------------------------- -->
+<h2>Events</h2>
+
+
+<h3>onChangeTheme</h3>
 
 <div class="level3">
     <pre class="brush: js">
     $("#element_id").jui_theme_switch({
-        onCellClick: function(event, data) {
+        onChangeTheme: function(event, theme) {
             // your code here e.g.
-            console.log('Click on cell: col ' + data.col + ' row ' + data.row + '.');
+            console.log(theme);
         }
     });
     </pre>
 
-</div>-->
+</div>
+
+
+<h3>onDisplay</h3>
+
+<div class="level3">
+    <pre class="brush: js">
+    $("#element_id").jui_theme_switch({
+        onDisplay: function() {
+            // your code here
+        }
+    });
+    </pre>
+
+</div>
 
 <!-- Screenshots ----------------------------------------------------------- -->
 <!--<h2>Screenshots</h2>-->
