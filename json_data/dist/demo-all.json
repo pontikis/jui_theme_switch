@@ -265,7 +265,9 @@
         "theme_name": "rocket",
         "theme_url": "http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css",
         "group": "Wijmo",
-        "active": "yes"
+        "active": "yes",
+        "author": "http://wijmo.com",
+        "license": "http://wijmo.com/license"
     },
     {
         "theme_name": "cobalt",
