@@ -147,12 +147,11 @@
     <p>The <code>link</code> tag to juery-ui theme css must have an ID (e.g. "ui-theme")</p>
 
     <pre class="brush: xml">
-
     &lt;link id="ui-theme" rel="stylesheet" href="/path/to/jquery-ui.css">
+    &lt;link rel="stylesheet" href="/path/to/jquery.jui_theme_switch.css">
 
     &lt;script type="text/javascript" src="/path/to/jquery.js" type="text/javascript">&lt;/script>
     &lt;script type="text/javascript" src="/path/to/jquery-ui.js" type="text/javascript">&lt;/script>
-
     &lt;script type="text/javascript" src="/path/to/jquery.jui_theme_switch.min.js" type="text/javascript">&lt;/script>
     </pre>
 </div>
@@ -165,13 +164,8 @@
 
     <pre class="brush: js">
     $("#element_id").jui_theme_switch({
-
         stylesheet_link_id: "ui-theme",  // REQUIRED
         datasource_url: '../json_data/dist/default.json',  // REQUIRED
-
-        containerClass: "container1", // Optional
-        labelClass: "list1_label",  // Optional
-        listClass: "list1"  // Optional
     });
     </pre>
 
@@ -180,6 +174,9 @@
 <h3>JSON data structure</h3>
 
 <div class="level3">
+
+    ATTENTION: "theme_name" must be unique.
+
     <pre class="brush: js">
     [
         {
@@ -214,16 +211,18 @@
         stylesheet_link_id: "the id of the link tag",  // REQUIRED
         datasource_url: 'json data url',  // REQUIRED
 
-        containerClass: "container1", // Optional
-        labelClass: "list1_label",  // Optional
-        listClass: "list1"  // Optional
-
         // DEFAULTS
         switcher_label: "Select theme",
         default_theme: "ui-lightness",
         list_size: "1",
         use_groups: "yes",
         show_all: "no", // default is show items having "active": "yes"
+
+        project_url: "", // url relative to web server document root (available only for locally hosted themes)
+
+        containerClass: "switcher_container",
+        labelClass: "switcher_label",
+        listClass: "switcher_list",
 
         switcher_label_id_prefix: "lbl_",
         switcher_id_prefix: "switcher_"
@@ -235,9 +234,9 @@
 <!-- Methods --------------------------------------------------------------- -->
 <h2>Methods list</h2>
 
-<!--<div class="level3" style="margin-top: 50px;">
+<div class="level3" style="margin-top: 50px;">
     <span style="background-color: #d9dbdc; padding: 5px; font-size: 140%;">COMMON</span>
-</div>-->
+</div>
 
 <h3>getDefaults</h3>
 
@@ -300,9 +299,9 @@
     </pre>
 </div>
 
-<!--<div class="level3" style="margin-top: 50px;">
+<div class="level3" style="margin-top: 50px;">
     <span style="background-color: #d9dbdc; padding: 5px; font-size: 140%;">SPECIFIC</span>
-</div>-->
+</div>
 
 <!-- Events ---------------------------------------------------------------- -->
 <!--<h2>Events</h2>
