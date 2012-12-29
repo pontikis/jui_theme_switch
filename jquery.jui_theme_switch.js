@@ -34,7 +34,8 @@
 "use strict";
 (function($) {
 
-    var pluginName = 'jui_theme_switch';
+    var pluginName = 'jui_theme_switch',
+        pluginStatus = 'jui_theme_switch_status';
 
     /* public methods ------------------------------------------------------- */
     var methods = {
@@ -61,17 +62,29 @@
                 }
                 elem.data(pluginName, settings);
 
+                // initialize plugin status
+                if(typeof  elem.data(pluginStatus) === 'undefined') {
+                    elem.data(pluginStatus, {});
+                    elem.data(pluginStatus)["selected_theme"] = {};
+                }
+
+
+                elem.unbind("onChangeTheme").bind("onChangeTheme", settings.onChangeTheme);
+                elem.unbind("onDisplay").bind("onDisplay", settings.onDisplay);
+
                 var container_id = elem.attr("id"),
                     themes_len, i, html = '',
                     switcher_id = create_id(settings.switcher_id_prefix, container_id),
                     switcher_label_id = create_id(settings.switcher_label_id_prefix, container_id),
                     elem_switcher, elem_switcher_label,
                     elem_link = $("#" + settings.stylesheet_link_id),
-                    selected = '', current_group, themes_group = '';
+                    selected = '', current_group, themes_group = '',
+                    project_url = '';
 
                 $.ajax({
                     url: settings.datasource_url,
                     dataType: 'json',
+                    cache: false,
                     success: function(data) {
 
                         themes_len = data.length;
@@ -90,12 +103,25 @@
                                     }
                                 }
 
-                                selected = (settings.default_theme == data[i]["theme_name"] ? ' selected="selected"' : '');
-                                html += '<option value="' + data[i]["theme_url"] + '"' + selected + '>';
+                                if(settings.default_theme == data[i]["theme_name"]) {
+                                    elem.data(pluginStatus)["selected_theme"] = data[i];
+                                    selected = ' selected="selected"';
+                                } else {
+                                    selected = '';
+                                }
+
+                                project_url = '';
+                                if(data[i].hasOwnProperty("hosted_locally")) {
+                                    if(data[i]["hosted_locally"] == "yes") {
+                                        project_url = settings.project_url
+                                    }
+                                }
+
+                                html += '<option value="' + project_url + data[i]["theme_url"] + '"' + selected + '>';
                                 html += data[i]["theme_name"];
                                 html += '</option>';
 
-                                if(settings.use_groups = "yes") {
+                                if(settings.use_groups == "yes") {
                                     if(i < themes_len - 1 && data[parseInt(i) + 1]["group"] !== themes_group) {
                                         html += '</optgroup>';
                                     }
@@ -116,7 +142,23 @@
                         // change theme
                         elem.off('change', elem_switcher).on('change', elem_switcher, function() {
                             elem_link.attr("href", elem_switcher.val());
+
+                            for(i = 0; i < themes_len; i++) {
+                                if($("#" + switcher_id + " option:selected").text() == data[i]["theme_name"]) {
+                                    elem.data(pluginStatus)["selected_theme"] = data[i];
+                                    break;
+                                }
+                            }
+
+                            // trigger event onChangeTheme
+                            elem.triggerHandler("onChangeTheme", data[i]);
+
                         });
+
+
+                        // JUI_THEME_SWITCH completed
+                        // trigger event onDisplay
+                        elem.triggerHandler("onDisplay");
 
                     }
                 });
@@ -138,8 +180,21 @@
                 use_groups: "yes",
                 show_all: "no", // default is show items having "active": "yes"
 
+                project_url: "", // url relative to web server document root (required only for locally hosted themes)
+
+                containerClass: "switcher_container",
+                labelClass: "switcher_label",
+                listClass: "switcher_list",
+
                 switcher_label_id_prefix: "lbl_",
-                switcher_id_prefix: "switcher_"
+                switcher_id_prefix: "switcher_",
+
+                onChangeTheme: function() {
+
+                },
+                onDisplay: function() {
+
+                }
             };
         },
 
@@ -200,6 +255,17 @@
 
                 $this.removeData(pluginName);
             });
+        },
+
+        /**
+         * Get selected theme (as JSON object)
+         *
+         * @example $(element).jui_theme_switch('getTheme');
+         * @return {*}
+         */
+        getTheme: function() {
+            var elem = this;
+            return elem.data(pluginStatus)["selected_theme"];
         }
     };
 
