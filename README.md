@@ -23,6 +23,11 @@ Demo
 http://pontikis.net/jui_theme_switch/demo/
 
 
+Forum
+----
+http://bbs.pontikis.net
+
+
 Download
 -------
 Download [here][DOWNLOAD]
