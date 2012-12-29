@@ -3,8 +3,7 @@ jui_theme_switch
 
 jui_theme_switch is a jquery plugin, displays a list with jquery-ui css and applies selected theme.
 
-Project page: [https://github.com/pontikis/jui_theme_switch/][github]
-[github]:https://github.com/pontikis/jui_theme_switch/
+Project page: https://github.com/pontikis/jui_theme_switch/
 
 Copyright Christos Pontikis http://pontikis.net
 
