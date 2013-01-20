@@ -1,6 +1,6 @@
 {
     "name": "jui_theme_switch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "jui_theme_switch",
     "author": {
         "name": "Christos Pontikis",
@@ -16,11 +16,11 @@
         "jquery": ">=1.6",
         "jquery-ui": ">=1.8"
     },
-    "description": "jquery plugin to switch juery-ui themes",
-    "homepage": "https://github.com/pontikis/jui_theme_switch",
-    "docs": "http://pontikis.net/jui_theme_switch/docs",
-    "demo": "http://pontikis.net/jui_theme_switch/demo",
-    "download": "https://github.com/pontikis/jui_theme_switch/zipball/v1.0.0",
+    "description": "jui_theme_switch is a jquery plugin, displays a list of jquery-ui css themes and applies selected theme.",
+    "homepage": "http://pontikis.net/labs/jui_theme_switch",
+    "docs": "http://pontikis.net/labs/jui_theme_switch/docs",
+    "demo": "http://pontikis.net/labs/jui_theme_switch/demo",
+    "download": "https://github.com/pontikis/jui_theme_switch/archive/master.zip",
     "keywords": [
         "jquery-ui",
         "themes",
@@ -32,6 +32,6 @@
         "url": "https://github.com/pontikis/jui_theme_switch"
     },
     "bugs": {
-        "url": "https://github.com/pontikis/jui_theme_switch/issues"
+        "url": "http://pontikis.net/bbs"
     }
 }
