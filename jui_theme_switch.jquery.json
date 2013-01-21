@@ -1,6 +1,6 @@
 {
     "name": "jui_theme_switch",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "jui_theme_switch",
     "author": {
         "name": "Christos Pontikis",
@@ -14,8 +14,7 @@
         }
     ],
     "dependencies": {
-        "jquery": ">=1.6",
-        "jquery-ui": ">=1.8"
+        "jquery": ">=1.6"
     },
     "description": "jQuery plugin, displays a list of jquery-ui css themes and applies selected theme.",
     "homepage": "http://pontikis.net/labs/jui_theme_switch",
