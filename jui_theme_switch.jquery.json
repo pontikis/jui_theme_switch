@@ -4,6 +4,7 @@
     "title": "jui_theme_switch",
     "author": {
         "name": "Christos Pontikis",
+        "email": "christos@pontikis.net",
         "url": "http://pontikis.net"
     },
     "licenses": [
@@ -16,22 +17,22 @@
         "jquery": ">=1.6",
         "jquery-ui": ">=1.8"
     },
-    "description": "jui_theme_switch is a jquery plugin, displays a list of jquery-ui css themes and applies selected theme.",
+    "description": "jQuery plugin, displays a list of jquery-ui css themes and applies selected theme.",
     "homepage": "http://pontikis.net/labs/jui_theme_switch",
     "docs": "http://pontikis.net/labs/jui_theme_switch/docs",
     "demo": "http://pontikis.net/labs/jui_theme_switch/demo",
     "download": "https://github.com/pontikis/jui_theme_switch/archive/master.zip",
     "keywords": [
-        "jquery-ui",
         "themes",
         "themes-roller",
-        "themes switch"
+        "themes switch",
+        "ui"
     ],
     "repository": {
         "type": "git",
         "url": "https://github.com/pontikis/jui_theme_switch"
     },
     "bugs": {
-        "url": "http://pontikis.net/bbs"
+        "url": "https://github.com/pontikis/jui_theme_switch/issues"
     }
 }
