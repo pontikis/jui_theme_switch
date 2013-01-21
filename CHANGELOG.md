@@ -11,6 +11,10 @@ Copyright Christos Pontikis [http://pontikis.net][copyright]
 
 License MIT
 
+Release 1.0.3 (21 Jan 2013)
+---------------------------
+* minor changes
+
 
 Release 1.0.2 (21 Jan 2013)
 ---------------------------

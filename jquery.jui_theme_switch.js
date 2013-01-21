@@ -3,7 +3,7 @@
  *               <p>License MIT
  *               <br />Copyright 2012 Christos Pontikis <a href="http://pontikis.net">http://pontikis.net</a>
  *               <br />Project page <a href="http://pontikis.net/labs/jui_theme_switch">http://pontikis.net/labs/jui_theme_switch</a>
- * @version 1.0.2 (21 Jan 2013)
+ * @version 1.0.3 (21 Jan 2013)
  * @author Christos Pontikis http://pontikis.net
  * @requires jquery, jquery-ui
  */
