@@ -11,6 +11,12 @@ Copyright Christos Pontikis [http://pontikis.net][copyright]
 
 License MIT
 
+
+Release 1.0.6 (21 Jan 2013)
+---------------------------
+* minor changes (keywords in package.json manifest must not contain spaces!)
+
+
 Release 1.0.5 (21 Jan 2013)
 ---------------------------
 * minor changes

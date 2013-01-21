@@ -1,6 +1,6 @@
 {
     "name": "jui_theme_switch",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "title": "jQuery ui-theme switcher",
     "author": {
         "name": "Christos Pontikis",
@@ -23,7 +23,7 @@
     "keywords": [
         "themes",
         "themes-roller",
-        "themes switch",
+        "themes-switch",
         "ui"
     ],
     "bugs": "https://github.com/pontikis/jui_theme_switch/issues"
