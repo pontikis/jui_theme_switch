@@ -8,7 +8,7 @@ Copyright [Christos Pontikis][copyright]
 
 Requires jquery, jquery-ui
 
-Release: 1.0.4 (21 Jan 2013)
+Release: 1.0.5 (21 Jan 2013)
 
 License [MIT][mit]
 [mit]: https://raw.github.com/pontikis/jui_theme_switch/master/MIT_LICENSE
