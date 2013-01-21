@@ -30,7 +30,7 @@ Documentation
 [DOCS]: http://pontikis.net/labs/jui_theme_switch/docs
 
 Support Forum
-------------
+-------------
 [http://pontikis.net/bbs][FORUM]
 [FORUM]: http://pontikis.net/bbs
 
