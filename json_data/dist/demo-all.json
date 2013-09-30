@@ -211,7 +211,7 @@
     },
     {
         "theme_name": "jquery-ui-bootstrap",
-        "theme_url": "http://addyosmani.github.com/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css",
+        "theme_url": "http://addyosmani.github.io/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css",
         "group": "3rd-party",
         "active": "yes",
         "author": "http://addyosmani.github.com/jquery-ui-bootstrap",
