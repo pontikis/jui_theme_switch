@@ -35,7 +35,8 @@
 (function($) {
 
     var pluginName = 'jui_theme_switch',
-        pluginStatus = 'jui_theme_switch_status';
+        pluginStatus = 'jui_theme_switch_status',
+        uiVersion = "1.12.0"; // fallback if jQuery UI isn't loaded
 
     /* public methods ------------------------------------------------------- */
     var methods = {
@@ -79,7 +80,7 @@
                     elem_switcher, elem_switcher_label,
                     elem_link = $("#" + settings.stylesheet_link_id),
                     selected = '', current_group, themes_group = '',
-                    project_url = '';
+                    project_url = '', theme_url;
 
                 $.ajax({
                     url: settings.datasource_url,
@@ -141,8 +142,8 @@
 
                         // change theme
                         elem.off('change', elem_switcher).on('change', elem_switcher, function() {
-                            var url = elem_switcher.val() || '').replace(/\{version\}/g, $.ui.version);
-                            elem_link.attr("href", url);
+                            theme_url = (elem_switcher.val() || '').replace(/\{version\}/g, $.ui && $.ui.version || uiVersion);
+                            elem_link.attr("href", theme_url);
 
                             for(i = 0; i < themes_len; i++) {
                                 if($("#" + switcher_id + " option:selected").text() == data[i]["theme_name"]) {
