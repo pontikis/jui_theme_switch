@@ -295,7 +295,7 @@
     $.fn.jui_theme_switch = function(method) {
 
         // OPTIONAL
-        if(this.size() != 1) {
+        if(this.length != 1) {
             var err_msg = 'You must use this plugin (' + pluginName + ') with a unique element (at once)';
             this.html('<span style="color: red;">' + 'ERROR: ' + err_msg + '</span>');
             $.error(err_msg);
