@@ -141,7 +141,8 @@
 
                         // change theme
                         elem.off('change', elem_switcher).on('change', elem_switcher, function() {
-                            elem_link.attr("href", elem_switcher.val());
+                            var url = elem_switcher.val() || '').replace(/\{version\}/g, $.ui.version);
+                            elem_link.attr("href", url);
 
                             for(i = 0; i < themes_len; i++) {
                                 if($("#" + switcher_id + " option:selected").text() == data[i]["theme_name"]) {
